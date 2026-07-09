@@ -1,0 +1,50 @@
+[
+  {
+    "id": "press-f1",
+    "name": "Press F1",
+    "kicker": "Podcast",
+    "blurb": "A podcast. Two friends. Questionable takes, delivered weekly. Press F1 for help — nobody is coming.",
+    "href": "#press-f1",
+    "external": false,
+    "cta": "Listen to the latest episode",
+    "accent": "#ff8ac0",
+    "border": "#ff4d8d",
+    "glow": "rgba(255,77,141,0.18)"
+  },
+  {
+    "id": "silly-season",
+    "name": "Silly Season",
+    "kicker": "Web app · live",
+    "blurb": "Drag drivers into seats they will never get. Driver market rumors, treated with the seriousness they deserve. None.",
+    "href": "http://sillyseason.cepibula116.workers.dev/",
+    "external": true,
+    "cta": "Plan the 2027 chaos timeline",
+    "accent": "#cf9dfc",
+    "border": "#a855f7",
+    "glow": "rgba(168,85,247,0.2)"
+  },
+  {
+    "id": "safety-car",
+    "name": "Safety Car",
+    "kicker": "Telegram bot",
+    "blurb": "Watch the race late, react live. The bot holds the group's comments and replays them lap-by-lap when you catch up. Zero spoilers.",
+    "href": "#safety-car",
+    "external": false,
+    "cta": "Add @SafetyCarBot to your group",
+    "accent": "#ffd23f",
+    "border": "#ffd23f",
+    "glow": "rgba(255,210,63,0.16)"
+  },
+  {
+    "id": "predicts-awards",
+    "name": "Predicts & Awards",
+    "kicker": "App",
+    "blurb": "Call the podium before lights out. Your wrong predictions, permanently recorded. Season awards included.",
+    "href": "#predicts-awards",
+    "external": false,
+    "cta": "Lock in your predictions",
+    "accent": "#6ff0c1",
+    "border": "#34e0a1",
+    "glow": "rgba(52,224,161,0.16)"
+  }
+]
