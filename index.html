@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Paddock · Four F1 products, one grid</title>
+  <meta name="description" content="Small F1 things built by two friends who take the sport very seriously and themselves not at all.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0e0b1a;
+      --panel: #1b1730;
+      --border: #3a2f5c;
+      --ink: #f7f5ff;
+      --muted: #b3a7d6;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; padding: 0; background: var(--bg); }
+
+    a { color: #22d3ee; text-decoration: none; }
+    a:hover { color: #7deffc; }
+
+    body {
+      font-family: Inter, sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(1100px 620px at 8% -6%, rgba(255,77,141,0.22), transparent 60%),
+        radial-gradient(1000px 640px at 100% 0%, rgba(34,211,238,0.2), transparent 58%),
+        radial-gradient(1200px 760px at 50% 116%, rgba(168,85,247,0.24), transparent 60%),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px) 0 0 / 72px 72px,
+        linear-gradient(180deg, rgba(255,255,255,0.022) 1px, transparent 1px) 0 0 / 72px 72px,
+        var(--bg);
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 18px;
+      padding: 96px 0 64px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--muted);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34e0a1;
+    }
+
+    .party-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(52px, 9vw, 88px);
+      line-height: 1.02;
+      font-weight: 700;
+      margin: 0;
+      background: linear-gradient(90deg, #ff4d8d, #a855f7, #22d3ee, #34e0a1, #ffd23f, #ff8a3d);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      padding-bottom: 6px;
+      animation: party-shift 8s linear infinite;
+    }
+
+    @keyframes party-shift { to { background-position: 200% center; } }
+
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 520px;
+      color: var(--muted);
+    }
+
+    /* ============ PRODUCT CARDS ============ */
+    .products {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding-bottom: 80px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)), var(--panel);
+      color: var(--ink);
+      text-decoration: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover { transform: translateY(-3px); color: var(--ink); }
+
+    .card--press:hover  { border-color: #ff4d8d; box-shadow: 0 0 40px rgba(255,77,141,0.18); }
+    .card--silly:hover  { border-color: #a855f7; box-shadow: 0 0 40px rgba(168,85,247,0.2); }
+    .card--safety:hover { border-color: #ffd23f; box-shadow: 0 0 40px rgba(255,210,63,0.16); }
+    .card--pred:hover   { border-color: #34e0a1; box-shadow: 0 0 40px rgba(52,224,161,0.16); }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .card-titles {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .card-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    .card-kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .card-body {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .card-cta .arrow { font-family: 'Space Grotesk', sans-serif; }
+
+    /* ============ FOOTER ============ */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .footer .left { font-weight: 600; }
+
+    @media (max-width: 720px) {
+      .shell { padding: 0 20px; }
+      .hero { padding: 64px 0 48px; }
+      .products { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .party-title { animation: none !important; }
+      .card { transition: none; }
+      .card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+
+    <!-- ============ HERO ============ -->
+    <header class="hero">
+      <span class="badge"><span class="badge-dot"></span>Four products, one grid</span>
+      <h1 class="party-title">The Paddock</h1>
+      <p class="hero-sub">Small F1 things built by two friends who take the sport very seriously and themselves not at all.</p>
+    </header>
+
+    <!-- ============ PRODUCT CARDS ============ -->
+    <main class="products">
+
+      <!-- Press F1 -->
+      <a href="#press-f1" class="card card--press">
+        <div class="card-head">
+          <svg width="56" height="56" viewBox="0 0 120 120" role="img" aria-label="Press F1 icon">
+            <defs><linearGradient id="lg-press" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff4d8d"></stop><stop offset="1" stop-color="#ff8a3d"></stop></linearGradient></defs>
+            <rect x="0" y="0" width="120" height="120" rx="30" fill="url(#lg-press)"></rect>
+            <rect x="30" y="36" width="60" height="54" rx="12" fill="rgba(18,10,29,0.35)"></rect>
+            <rect x="30" y="30" width="60" height="54" rx="12" fill="#f7f5ff"></rect>
+            <text x="60" y="66" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="26" fill="#120a1d">F1</text>
+          </svg>
+          <div class="card-titles">
+            <span class="card-name">Press F1</span>
+            <span class="card-kicker" style="color: #ff8ac0;">Podcast</span>
+          </div>
+        </div>
+        <p class="card-body">A podcast. Two friends. Questionable takes, delivered weekly. Press F1 for help — nobody is coming.</p>
+        <span class="card-cta" style="color: #ff8ac0;">Listen to the latest episode <span class="arrow">→</span></span>
+      </a>
+
+      <!-- Silly Season -->
+      <a href="http://sillyseason.cepibula116.workers.dev/" target="_blank" rel="noopener" class="card card--silly">
+        <div class="card-head">
+          <svg width="56" height="56" viewBox="0 0 120 120" role="img" aria-label="Silly Season icon">
+            <defs><linearGradient id="lg-silly" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a855f7"></stop><stop offset="1" stop-color="#ff4d8d"></stop></linearGradient></defs>
+            <rect x="0" y="0" width="120" height="120" rx="30" fill="url(#lg-silly)"></rect>
+            <path d="M36 52 A24 24 0 0 1 84 52" stroke="#f7f5ff" stroke-width="8" fill="none" stroke-linecap="round"></path>
+            <polygon points="76,50 92,50 84,66" fill="#f7f5ff"></polygon>
+            <path d="M84 68 A24 24 0 0 1 36 68" stroke="#f7f5ff" stroke-width="8" fill="none" stroke-linecap="round"></path>
+            <polygon points="44,70 28,70 36,54" fill="#f7f5ff"></polygon>
+          </svg>
+          <div class="card-titles">
+            <span class="card-name">Silly Season</span>
+            <span class="card-kicker" style="color: #cf9dfc;">Web app · live</span>
+          </div>
+        </div>
+        <p class="card-body">Drag drivers into seats they will never get. Driver market rumors, treated with the seriousness they deserve. None.</p>
+        <span class="card-cta" style="color: #cf9dfc;">Plan the 2027 chaos timeline <span class="arrow">→</span></span>
+      </a>
+
+      <!-- Safety Car -->
+      <a href="#safety-car" class="card card--safety">
+        <div class="card-head">
+          <svg width="56" height="56" viewBox="0 0 240 240" role="img" aria-label="Safety Car bot avatar">
+            <circle cx="120" cy="120" r="120" fill="#ffd23f"></circle>
+            <rect x="82" y="44" width="76" height="18" rx="9" fill="#120a1d"></rect>
+            <circle cx="101" cy="53" r="5" fill="#ff8a3d"></circle>
+            <circle cx="120" cy="53" r="5" fill="#ffd23f"></circle>
+            <circle cx="139" cy="53" r="5" fill="#ff8a3d"></circle>
+            <rect x="64" y="62" width="112" height="62" rx="20" fill="#f7f5ff"></rect>
+            <rect x="76" y="72" width="88" height="44" rx="14" fill="#120a1d"></rect>
+            <circle cx="103" cy="94" r="9" fill="#f7f5ff"></circle>
+            <circle cx="137" cy="94" r="9" fill="#f7f5ff"></circle>
+            <circle cx="105" cy="96" r="4" fill="#120a1d"></circle>
+            <circle cx="139" cy="96" r="4" fill="#120a1d"></circle>
+            <rect x="46" y="118" width="148" height="54" rx="22" fill="#f7f5ff"></rect>
+            <path d="M104 138 Q120 152 136 138" stroke="#120a1d" stroke-width="6" stroke-linecap="round" fill="none"></path>
+            <circle cx="72" cy="140" r="9" fill="#ffd23f" stroke="#120a1d" stroke-width="3"></circle>
+            <circle cx="168" cy="140" r="9" fill="#ffd23f" stroke="#120a1d" stroke-width="3"></circle>
+            <circle cx="76" cy="177" r="15" fill="#120a1d"></circle>
+            <circle cx="164" cy="177" r="15" fill="#120a1d"></circle>
+            <circle cx="76" cy="177" r="5" fill="#6b5e8f"></circle>
+            <circle cx="164" cy="177" r="5" fill="#6b5e8f"></circle>
+          </svg>
+          <div class="card-titles">
+            <span class="card-name">Safety Car</span>
+            <span class="card-kicker" style="color: #ffd23f;">Telegram bot</span>
+          </div>
+        </div>
+        <p class="card-body">Watch the race late, react live. The bot holds the group's comments and replays them lap-by-lap when you catch up. Zero spoilers.</p>
+        <span class="card-cta" style="color: #ffd23f;">Add @SafetyCarBot to your group <span class="arrow">→</span></span>
+      </a>
+
+      <!-- Predicts & Awards -->
+      <a href="#predicts-awards" class="card card--pred">
+        <div class="card-head">
+          <svg width="56" height="56" viewBox="0 0 120 120" role="img" aria-label="Predicts and Awards icon">
+            <defs><linearGradient id="lg-pred" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"></stop><stop offset="1" stop-color="#34e0a1"></stop></linearGradient></defs>
+            <rect x="0" y="0" width="120" height="120" rx="30" fill="url(#lg-pred)"></rect>
+            <path d="M40 33 C26 33 26 53 42 55" stroke="#120a1d" stroke-width="7" fill="none" stroke-linecap="round"></path>
+            <path d="M80 33 C94 33 94 53 78 55" stroke="#120a1d" stroke-width="7" fill="none" stroke-linecap="round"></path>
+            <path d="M40 30 L80 30 L80 50 A20 20 0 0 1 40 50 Z" fill="#120a1d"></path>
+            <rect x="55" y="68" width="10" height="14" fill="#120a1d"></rect>
+            <rect x="42" y="82" width="36" height="10" rx="4" fill="#120a1d"></rect>
+            <text x="60" y="54" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18" fill="#34e0a1">P1</text>
+          </svg>
+          <div class="card-titles">
+            <span class="card-name">Predicts &amp; Awards</span>
+            <span class="card-kicker" style="color: #6ff0c1;">App</span>
+          </div>
+        </div>
+        <p class="card-body">Call the podium before lights out. Your wrong predictions, permanently recorded. Season awards included.</p>
+        <span class="card-cta" style="color: #6ff0c1;">Lock in your predictions <span class="arrow">→</span></span>
+      </a>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <span class="left">The Paddock · est. lap 1</span>
+      <span>no rights held, obviously</span>
+    </footer>
+  </div>
+</body>
+</html>
